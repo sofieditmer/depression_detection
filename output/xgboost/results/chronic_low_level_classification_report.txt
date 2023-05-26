@@ -1,0 +1,379 @@
+2023-04-02 11:54:39.353223
+
+gamma: 0.3621441870021605
+lr: 0.06758516842209052
+max_depth: 0.06758516842209052
+min_child_weight: 2
+early_stopping_rounds: 40
+
+CLASSIFICATION REPORT: 
+              0     1  accuracy  macro avg  weighted avg
+precision  0.38  0.40      0.39       0.39          0.39
+recall     0.33  0.44      0.39       0.39          0.39
+f1-score   0.35  0.42      0.39       0.39          0.39
+support    9.00  9.00      0.39      18.00         18.00
+
+2023-04-03 13:38:21.253161
+
+gamma: 0.9713054390951676
+lr: 0.06526761001829634
+max_depth: 0.06526761001829634
+min_child_weight: 8
+early_stopping_rounds: 10
+
+CLASSIFICATION REPORT: 
+             0     1  accuracy  macro avg  weighted avg
+precision  0.0  0.50       0.5       0.25          0.25
+recall     0.0  1.00       0.5       0.50          0.50
+f1-score   0.0  0.67       0.5       0.33          0.33
+support    9.0  9.00       0.5      18.00         18.00
+
+2023-04-03 14:42:19.755207
+
+gamma: 0.39245496347796527
+lr: 0.0062437017033558665
+max_depth: 0.0062437017033558665
+min_child_weight: 6
+early_stopping_rounds: 20
+
+CLASSIFICATION REPORT: 
+              0     1  accuracy  macro avg  weighted avg
+precision  0.60  0.54      0.56       0.57          0.57
+recall     0.33  0.78      0.56       0.56          0.56
+f1-score   0.43  0.64      0.56       0.53          0.53
+support    9.00  9.00      0.56      18.00         18.00
+
+2023-04-06 08:08:40.269998
+
+gamma: 0.01214958053369275
+lr: 0.4068588210764079
+max_depth: 6
+min_child_weight: 6
+early_stopping_rounds: 10
+
+CLASSIFICATION REPORT: 
+              0     1  accuracy  macro avg  weighted avg
+precision  0.50  0.50       0.5       0.50          0.50
+recall     0.75  0.25       0.5       0.50          0.50
+f1-score   0.60  0.33       0.5       0.47          0.47
+support    4.00  4.00       0.5       8.00          8.00
+
+2023-04-06 21:51:15.454751
+
+gamma: 0.01735528632025163
+lr: 0.4695296072530635
+max_depth: 2
+min_child_weight: 3
+early_stopping_rounds: 10
+
+CLASSIFICATION REPORT: 
+              0     1  accuracy  macro avg  weighted avg
+precision  0.50  0.50       0.5       0.50          0.50
+recall     0.75  0.25       0.5       0.50          0.50
+f1-score   0.60  0.33       0.5       0.47          0.47
+support    4.00  4.00       0.5       8.00          8.00
+
+2023-04-11 18:33:47.621401
+
+gamma: 0.6866246352570766
+lr: 0.6606079083918157
+max_depth: 10
+min_child_weight: 1
+max_delta_step: 1
+early_stopping_rounds: 40
+
+CLASSIFICATION REPORT: 
+              0     1  accuracy  macro avg  weighted avg
+precision  0.75  0.75      0.75       0.75          0.75
+recall     0.75  0.75      0.75       0.75          0.75
+f1-score   0.75  0.75      0.75       0.75          0.75
+support    4.00  4.00      0.75       8.00          8.00
+
+2023-04-17 23:34:38.023054
+
+gamma: 0.8561293447109839
+lr: 0.9941696398196403
+max_depth: 6
+min_child_weight: 6
+max_delta_step: 3
+early_stopping_rounds: 20
+
+CLASSIFICATION REPORT: 
+              0     1  accuracy  macro avg  weighted avg
+precision  0.75  0.70      0.72       0.72          0.73
+recall     0.67  0.78      0.72       0.72          0.72
+f1-score   0.71  0.74      0.72       0.72          0.72
+support    9.00  9.00      0.72      18.00         18.00
+
+2023-04-27 13:44:53.149224
+
+Seed: 66
+gamma: 0.5382555239541944
+lr: 0.29336400528622925
+max_depth: 5
+min_child_weight: 2
+max_delta_step: 3
+early_stopping_rounds: 20
+
+CLASSIFICATION REPORT: 
+              0    1  accuracy  macro avg  weighted avg
+precision  1.00  0.0      0.33       0.50          1.00
+recall     0.33  0.0      0.33       0.17          0.33
+f1-score   0.50  0.0      0.33       0.25          0.50
+support    9.00  0.0      0.33       9.00          9.00
+
+2023-04-27 19:06:37.256812
+
+Seed: 31
+gamma: 0.7836295466322664
+lr: 0.1367679339867678
+max_depth: 5
+min_child_weight: 2
+max_delta_step: 3
+early_stopping_rounds: 40
+
+CLASSIFICATION REPORT: 
+              0    1  accuracy  macro avg  weighted avg
+precision  1.00  0.0      0.56       0.50          1.00
+recall     0.56  0.0      0.56       0.28          0.56
+f1-score   0.71  0.0      0.56       0.36          0.71
+support    9.00  0.0      0.56       9.00          9.00
+
+2023-04-28 12:56:03.583235
+
+Seed: 66
+gamma: 0.5774667260532784
+lr: 0.24258113420547683
+max_depth: 2
+min_child_weight: 2
+max_delta_step: 5
+early_stopping_rounds: 40
+
+CLASSIFICATION REPORT: 
+              0    1  accuracy  macro avg  weighted avg
+precision  1.00  0.0      0.33       0.50          1.00
+recall     0.33  0.0      0.33       0.17          0.33
+f1-score   0.50  0.0      0.33       0.25          0.50
+support    9.00  0.0      0.33       9.00          9.00
+
+2023-04-28 15:32:29.851909
+
+Seed: 31
+gamma: 0.478561705155262
+lr: 0.6967367331738328
+max_depth: 10
+min_child_weight: 3
+max_delta_step: 2
+early_stopping_rounds: 40
+
+CLASSIFICATION REPORT: 
+              0    1  accuracy  macro avg  weighted avg
+precision  1.00  0.0      0.56       0.50          1.00
+recall     0.56  0.0      0.56       0.28          0.56
+f1-score   0.71  0.0      0.56       0.36          0.71
+support    9.00  0.0      0.56       9.00          9.00
+
+2023-04-28 18:17:42.839674
+
+Seed: 18
+gamma: 0.8319102071734027
+lr: 0.6468186589896557
+max_depth: 5
+min_child_weight: 1
+max_delta_step: 3
+early_stopping_rounds: 10
+
+CLASSIFICATION REPORT: 
+              0    1  accuracy  macro avg  weighted avg
+precision  1.00  0.0      0.22       0.50          1.00
+recall     0.22  0.0      0.22       0.11          0.22
+f1-score   0.36  0.0      0.22       0.18          0.36
+support    9.00  0.0      0.22       9.00          9.00
+
+2023-04-28 20:59:41.141605
+
+Seed: 97
+gamma: 0.8104679968387061
+lr: 0.018462434054099516
+max_depth: 4
+min_child_weight: 5
+max_delta_step: 4
+early_stopping_rounds: 10
+
+CLASSIFICATION REPORT: 
+              0    1  accuracy  macro avg  weighted avg
+precision  1.00  0.0      0.78       0.50          1.00
+recall     0.78  0.0      0.78       0.39          0.78
+f1-score   0.88  0.0      0.78       0.44          0.88
+support    9.00  0.0      0.78       9.00          9.00
+
+2023-04-28 23:38:53.576273
+
+Seed: 60
+gamma: 0.36799440730764765
+lr: 0.9645099773227394
+max_depth: 6
+min_child_weight: 7
+max_delta_step: 1
+early_stopping_rounds: 20
+
+CLASSIFICATION REPORT: 
+              0     1  accuracy  macro avg  weighted avg
+precision  0.75  0.57      0.61       0.66          0.66
+recall     0.33  0.89      0.61       0.61          0.61
+f1-score   0.46  0.70      0.61       0.58          0.58
+support    9.00  9.00      0.61      18.00         18.00
+
+2023-04-29 02:15:22.296792
+
+Seed: 66
+gamma: 0.5602921613655762
+lr: 0.6970451436645716
+max_depth: 3
+min_child_weight: 4
+max_delta_step: 4
+early_stopping_rounds: 10
+
+CLASSIFICATION REPORT: 
+              0     1  accuracy  macro avg  weighted avg
+precision  0.80  0.62      0.67       0.71          0.71
+recall     0.44  0.89      0.67       0.67          0.67
+f1-score   0.57  0.73      0.67       0.65          0.65
+support    9.00  9.00      0.67      18.00         18.00
+
+2023-04-29 04:48:13.847696
+
+Seed: 31
+gamma: 0.32673116082633824
+lr: 0.11278136165996644
+max_depth: 2
+min_child_weight: 7
+max_delta_step: 3
+early_stopping_rounds: 10
+
+CLASSIFICATION REPORT: 
+              0     1  accuracy  macro avg  weighted avg
+precision  0.75  0.70      0.72       0.72          0.73
+recall     0.67  0.78      0.72       0.72          0.72
+f1-score   0.71  0.74      0.72       0.72          0.72
+support    9.00  9.00      0.72      18.00         18.00
+
+2023-04-29 07:24:10.438088
+
+Seed: 18
+gamma: 0.5489262867612168
+lr: 0.8224607188066726
+max_depth: 10
+min_child_weight: 6
+max_delta_step: 2
+early_stopping_rounds: 10
+
+CLASSIFICATION REPORT: 
+              0     1  accuracy  macro avg  weighted avg
+precision  0.86  0.73      0.78       0.79          0.79
+recall     0.67  0.89      0.78       0.78          0.78
+f1-score   0.75  0.80      0.78       0.77          0.77
+support    9.00  9.00      0.78      18.00         18.00
+
+2023-04-29 09:56:09.974862
+
+Seed: 97
+gamma: 0.1232765040382302
+lr: 0.23320947750314752
+max_depth: 4
+min_child_weight: 2
+max_delta_step: 1
+early_stopping_rounds: 40
+
+CLASSIFICATION REPORT: 
+              0     1  accuracy  macro avg  weighted avg
+precision  0.88  0.80      0.83       0.84          0.84
+recall     0.78  0.89      0.83       0.83          0.83
+f1-score   0.82  0.84      0.83       0.83          0.83
+support    9.00  9.00      0.83      18.00         18.00
+
+2023-05-04 15:38:25.978100
+
+Seed: 60
+gamma: 0.29699003853608674
+lr: 0.7814904887060276
+max_depth: 3
+min_child_weight: 1
+max_delta_step: 2
+early_stopping_rounds: 40
+
+CLASSIFICATION REPORT: 
+              0     1  accuracy  macro avg  weighted avg
+precision  0.60  0.54      0.56       0.57          0.57
+recall     0.33  0.78      0.56       0.56          0.56
+f1-score   0.43  0.64      0.56       0.53          0.53
+support    9.00  9.00      0.56      18.00         18.00
+
+2023-05-04 18:18:22.275162
+
+Seed: 66
+gamma: 0.4847451913531934
+lr: 0.08538922399657012
+max_depth: 3
+min_child_weight: 6
+max_delta_step: 4
+early_stopping_rounds: 40
+
+CLASSIFICATION REPORT: 
+              0     1  accuracy  macro avg  weighted avg
+precision  0.67  0.58      0.61       0.62          0.62
+recall     0.44  0.78      0.61       0.61          0.61
+f1-score   0.53  0.67      0.61       0.60          0.60
+support    9.00  9.00      0.61      18.00         18.00
+
+2023-05-04 21:05:28.444049
+
+Seed: 31
+gamma: 0.04155410635399204
+lr: 0.5747258396511703
+max_depth: 5
+min_child_weight: 7
+max_delta_step: 0
+early_stopping_rounds: 40
+
+CLASSIFICATION REPORT: 
+              0     1  accuracy  macro avg  weighted avg
+precision  0.86  0.73      0.78       0.79          0.79
+recall     0.67  0.89      0.78       0.78          0.78
+f1-score   0.75  0.80      0.78       0.77          0.77
+support    9.00  9.00      0.78      18.00         18.00
+
+2023-05-04 23:47:21.693995
+
+Seed: 18
+gamma: 0.361930376008892
+lr: 0.8640048105438694
+max_depth: 1
+min_child_weight: 6
+max_delta_step: 3
+early_stopping_rounds: 20
+
+CLASSIFICATION REPORT: 
+              0     1  accuracy  macro avg  weighted avg
+precision  0.60  0.54      0.56       0.57          0.57
+recall     0.33  0.78      0.56       0.56          0.56
+f1-score   0.43  0.64      0.56       0.53          0.53
+support    9.00  9.00      0.56      18.00         18.00
+
+2023-05-05 02:29:19.022639
+
+Seed: 97
+gamma: 0.0795045840040135
+lr: 0.6901903250015887
+max_depth: 3
+min_child_weight: 1
+max_delta_step: 3
+early_stopping_rounds: 10
+
+CLASSIFICATION REPORT: 
+              0     1  accuracy  macro avg  weighted avg
+precision  0.78  0.78      0.78       0.78          0.78
+recall     0.78  0.78      0.78       0.78          0.78
+f1-score   0.78  0.78      0.78       0.78          0.78
+support    9.00  9.00      0.78      18.00         18.00
+

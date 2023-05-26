@@ -1,0 +1,23 @@
+;ID;Diagnosis;Data type;True label;Prediction_lowlevel;Prediction_word_embeddings;Prediction_sentence_embeddings;Auto_lowlevel_predictions;Auto_word_predictions;Auto_sentence_predictions
+3;dc18_tri;control;Triangle;0;1;1;1;0;1;0
+4;dc3_tri;control;Triangle;0;1;1;0;1;0;1
+5;dc30_tri;control;Triangle;0;1;1;0;0;1;0
+6;dc27_tri;control;Triangle;0;1;1;1;0;0;0
+9;dc38_tri;control;Triangle;0;1;1;1;0;1;1
+12;dc37_tri;control;Triangle;0;1;1;0;0;1;0
+14;dc20_tri;control;Triangle;0;1;1;0;1;0;0
+15;dc2_tri;control;Triangle;0;1;1;0;0;1;0
+17;dc32_tri;control;Triangle;0;1;1;1;0;1;0
+18;dc21_tri;control;Triangle;0;1;1;1;0;0;0
+19;dc26_tri;control;Triangle;0;1;1;1;0;0;1
+0;dp37_tri;1st_episode;Triangle;1;1;1;1;0;1;0
+1;dp10_tri;1st_episode;Triangle;1;1;1;0;0;1;1
+2;dp36_tri;1st_episode;Triangle;1;1;1;1;1;1;1
+7;dp38_tri;1st_episode;Triangle;1;1;1;1;0;1;0
+8;dp31_tri;1st_episode;Triangle;1;1;1;1;1;1;1
+10;dp16_tri;1st_episode;Triangle;1;1;1;1;0;1;1
+11;dpc23_tri;chronic;Triangle;1;1;1;1;0;1;1
+20;dpc9_tri;chronic;Triangle;1;1;1;1;0;1;0
+32;dpc4_tri;chronic;Triangle;1;1;1;0;1;1;1
+35;dpc2_tri;chronic;Triangle;1;1;1;1;0;1;1
+47;dpc26_tri;chronic;Triangle;1;1;1;1;0;1;0

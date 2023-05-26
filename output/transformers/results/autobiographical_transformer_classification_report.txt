@@ -1,0 +1,88 @@
+2023-04-11 20:14:24.755776
+
+Performance metrics on test data: 
+{'eval_loss': 4.529013156890869, 'eval_accuracy': 0.7142857142857143, 'eval_runtime': 4.1682, 'eval_samples_per_second': 3.359, 'eval_steps_per_second': 0.48, 'epoch': 10.0} 
+
+Hyperparameters: 
+lr: 2.7892679240626303e-05
+n_epochs: None
+batch_size: 8
+weight_decay: 0.28821353484313217
+
+CLASSIFICATION REPORT: 
+              precision    recall  f1-score   support
+
+           0       0.64      1.00      0.78         7
+           1       1.00      0.43      0.60         7
+
+    accuracy                           0.71        14
+   macro avg       0.82      0.71      0.69        14
+weighted avg       0.82      0.71      0.69        14
+
+
+2023-04-19 11:29:35.416964
+
+Performance metrics on test data: 
+{'eval_loss': 2.2483553886413574, 'eval_accuracy': 0.7, 'eval_runtime': 8.7058, 'eval_samples_per_second': 2.297, 'eval_steps_per_second': 0.345, 'epoch': 20.0} 
+
+Hyperparameters: 
+lr: 3.1031904811023735e-05
+n_epochs: None
+batch_size: 8
+weight_decay: 0.2501234866704226
+
+CLASSIFICATION REPORT: 
+              precision    recall  f1-score   support
+
+           0       0.75      0.60      0.67        10
+           1       0.67      0.80      0.73        10
+
+    accuracy                           0.70        20
+   macro avg       0.71      0.70      0.70        20
+weighted avg       0.71      0.70      0.70        20
+
+
+2023-04-27 22:16:28.925277
+
+Performance metrics on test data: 
+{'eval_loss': 0.9990497827529907, 'eval_accuracy': 0.75, 'eval_runtime': 6.7515, 'eval_samples_per_second': 2.962, 'eval_steps_per_second': 0.444, 'epoch': 20.0} 
+
+Hyperparameters: 
+lr: 3.1031904811023735e-05
+n_epochs: None
+batch_size: 8
+weight_decay: 0.2501234866704226
+
+CLASSIFICATION REPORT: 
+              precision    recall  f1-score   support
+
+           0       1.00      0.50      0.67        10
+           1       0.67      1.00      0.80        10
+
+    accuracy                           0.75        20
+   macro avg       0.83      0.75      0.73        20
+weighted avg       0.83      0.75      0.73        20
+
+
+2023-05-01 02:43:43.942241
+
+Performance metrics on test data: 
+{'eval_loss': 2.143400192260742, 'eval_accuracy': 0.8, 'eval_runtime': 9.5922, 'eval_samples_per_second': 2.085, 'eval_steps_per_second': 0.209, 'epoch': 20.0} 
+
+Hyperparameters: 
+lr: 4.612381739071104e-05
+n_epochs: None
+batch_size: 16
+weight_decay: 0.06823484524154666
+
+CLASSIFICATION REPORT: 
+              precision    recall  f1-score   support
+
+           0       1.00      0.60      0.75        10
+           1       0.71      1.00      0.83        10
+
+    accuracy                           0.80        20
+   macro avg       0.86      0.80      0.79        20
+weighted avg       0.86      0.80      0.79        20
+
+

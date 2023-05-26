@@ -1,0 +1,25 @@
+,ID,True label,Diagnosis,Task,Prediction_external_test
+0,dc23_v1,0,control,autobiographical,1
+1,dc15_v1,0,control,autobiographical,0
+2,dc19_v1,0,control,autobiographical,0
+3,dc33_v1,0,control,autobiographical,1
+4,dc37_v1,0,control,autobiographical,0
+5,dc11_v1,0,control,autobiographical,1
+6,dc15_tri,0,control,triangle,1
+7,dc6_tri,0,control,triangle,0
+8,dc14_tri,0,control,triangle,1
+9,dc5_tri,0,control,triangle,0
+10,dc30_tri,0,control,triangle,1
+11,dc21_tri,0,control,triangle,1
+12,dp25_v1,1,depressed,autobiographical,0
+13,dp29_v1,1,depressed,autobiographical,0
+14,dp6_v1,1,depressed,autobiographical,1
+15,dp13_v1,1,depressed,autobiographical,1
+16,dp35_v1,1,depressed,autobiographical,0
+17,dp39_v1,1,depressed,autobiographical,1
+18,dp5_tri,1,depressed,triangle,1
+19,dp14_tri,1,depressed,triangle,1
+20,dp32_tri,1,depressed,triangle,1
+21,dp22_tri,1,depressed,triangle,1
+22,dp23_tri,1,depressed,triangle,1
+23,dp33_tri,1,depressed,triangle,1

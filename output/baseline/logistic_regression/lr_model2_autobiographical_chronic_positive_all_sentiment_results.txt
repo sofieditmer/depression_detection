@@ -1,0 +1,120 @@
+MODEL USED FOR PREDICTIONS: logistic_regression
+
+2023-04-10 10:50:49.149898
+
+optimizer: adam
+lr: 0.001
+batch_size: 32
+epochs: 10
+train_loss: 0.4698294997215271
+val_loss: 0.7504310011863708
+test_loss: 0.7156594395637512
+
+weights: [[array([[-1.3190141]], dtype=float32), array([-0.01765024], dtype=float32)]]
+
+
+CLASSIFICATION REPORT: 
+              precision    recall  f1-score   support
+
+           0       0.50      1.00      0.67         6
+           1       0.00      0.00      0.00         6
+
+    accuracy                           0.50        12
+   macro avg       0.25      0.50      0.33        12
+weighted avg       0.25      0.50      0.33        12
+MODEL USED FOR PREDICTIONS: logistic_regression
+
+2023-04-10 13:38:55.247780
+
+optimizer: adam
+lr: 0.1
+batch_size: 8
+epochs: 100
+train_loss: 0.4310133457183838
+val_loss: 0.7334091663360596
+test_loss: 0.6740208268165588
+
+weights: [[array([[-3.778481]], dtype=float32), array([1.0248073], dtype=float32)]]
+
+
+CLASSIFICATION REPORT: 
+              precision    recall  f1-score   support
+
+           0       0.50      1.00      0.67         6
+           1       0.00      0.00      0.00         6
+
+    accuracy                           0.50        12
+   macro avg       0.25      0.50      0.33        12
+weighted avg       0.25      0.50      0.33        12
+MODEL USED FOR PREDICTIONS: logistic_regression
+
+2023-04-10 15:11:01.331231
+
+optimizer: adam
+lr: 0.001
+batch_size: 64
+epochs: 10
+train_loss: 0.8115686178207397
+val_loss: 0.7306749820709229
+test_loss: 0.7457113862037659
+
+weights: [[array([[0.48701784]], dtype=float32), array([-0.00999659], dtype=float32)]]
+
+
+CLASSIFICATION REPORT: 
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         6
+           1       0.50      1.00      0.67         6
+
+    accuracy                           0.50        12
+   macro avg       0.25      0.50      0.33        12
+weighted avg       0.25      0.50      0.33        12
+MODEL USED FOR PREDICTIONS: logistic_regression
+
+2023-04-17 10:14:02.499423
+
+optimizer: adam
+lr: 0.1
+batch_size: 8
+epochs: 100
+train_loss: 0.4367143213748932
+val_loss: 0.7276082038879395
+test_loss: 0.7024484872817993
+
+weights: [[array([[-5.3698144]], dtype=float32), array([1.8251569], dtype=float32)]]
+
+
+CLASSIFICATION REPORT: 
+              precision    recall  f1-score   support
+
+           0       0.50      1.00      0.67         5
+           1       0.00      0.00      0.00         5
+
+    accuracy                           0.50        10
+   macro avg       0.25      0.50      0.33        10
+weighted avg       0.25      0.50      0.33        10
+MODEL USED FOR PREDICTIONS: logistic_regression
+
+2023-04-17 17:18:22.158029
+
+optimizer: adam
+lr: 0.1
+batch_size: 8
+epochs: 100
+train_loss: 0.4229087829589844
+val_loss: 0.6246015429496765
+test_loss: 0.5606489181518555
+
+weights: [[array([[-6.683599]], dtype=float32), array([3.0893407], dtype=float32)]]
+
+
+CLASSIFICATION REPORT: 
+              precision    recall  f1-score   support
+
+           0       0.60      1.00      0.75         6
+           1       1.00      0.33      0.50         6
+
+    accuracy                           0.67        12
+   macro avg       0.80      0.67      0.62        12
+weighted avg       0.80      0.67      0.62        12

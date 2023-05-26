@@ -1,0 +1,19 @@
+,ID,Diagnosis,Data type,True label,Prediction_lowlevel,Prediction_word_embeddings,Prediction_sentence_embeddings,First_epi_lowlevel_predictions,First_epi_word_predictions,First_epi_sentence_predictions
+5,dc4_tri,control,Triangle,0,1,0,1,1,1,1
+8,dc25_v1,control,Autobiographical,0,0,0,0,0,0,0
+9,dc27_v1,control,Autobiographical,0,0,1,0,1,1,0
+12,dc18_tri,control,Triangle,0,0,0,0,0,1,1
+13,dc36_v1,control,Autobiographical,0,0,0,1,1,1,1
+14,dc37_v1,control,Autobiographical,0,0,1,0,0,0,1
+15,dc11_tri,control,Triangle,0,1,0,1,0,0,0
+19,dc13_v1,control,Autobiographical,0,0,0,0,1,0,1
+21,dc32_tri,control,Triangle,0,0,0,0,0,1,1
+0,dpc5,chronic,Autobiographical,1,1,1,1,1,0,1
+1,dpc13,chronic,Autobiographical,1,1,1,1,1,0,1
+2,dpc20_tri,chronic,Triangle,1,0,1,0,1,1,0
+3,dpc1_tri,chronic,Triangle,1,1,1,1,1,0,0
+4,dpc19_tri,chronic,Triangle,1,1,1,0,1,1,0
+6,dpc2_tri,chronic,Triangle,1,1,0,1,1,0,1
+7,dpc21,chronic,Autobiographical,1,0,1,0,1,0,1
+11,dpc8,chronic,Autobiographical,1,1,0,0,1,0,0
+23,dpc19,chronic,Autobiographical,1,1,1,1,1,0,1

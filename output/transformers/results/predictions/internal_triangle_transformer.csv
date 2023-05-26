@@ -1,0 +1,23 @@
+,ID,True label,Prediction_internal_test
+0,dc33_tri,0,0
+1,dc41_tri,0,0
+2,dc15_tri,0,1
+3,dc6_tri,0,0
+4,dc14_tri,0,1
+5,dc7_tri,0,0
+6,dc22_tri,0,1
+7,dc32_tri,0,1
+8,dc40_tri,0,1
+9,dc16_tri,0,1
+10,dc5_tri,0,0
+11,dpc15_tri,1,1
+12,dpc6_tri,1,1
+13,dpc23_tri,1,1
+14,dpc22_tri,1,1
+15,dpc14_tri,1,0
+16,dpc7_tri,1,1
+17,dp5_tri,1,1
+18,dp14_tri,1,0
+19,dp32_tri,1,1
+20,dp22_tri,1,1
+21,dp23_tri,1,1

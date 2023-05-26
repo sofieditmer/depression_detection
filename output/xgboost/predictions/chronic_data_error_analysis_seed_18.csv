@@ -1,0 +1,19 @@
+,ID,Diagnosis,Data type,True label,Prediction_lowlevel,Prediction_word_embeddings,Prediction_sentence_embeddings,First_epi_lowlevel_predictions,First_epi_word_predictions,First_epi_sentence_predictions
+0,dc38_tri,control,Triangle,0,1,0,0,0,0,1
+3,dc41_tri,control,Triangle,0,1,1,1,1,0,0
+6,dc16_tri,control,Triangle,0,1,0,1,1,0,0
+9,dc14_tri,control,Triangle,0,1,1,1,0,0,0
+10,dc6_v1,control,Autobiographical,0,0,0,1,1,1,1
+11,dc19_v1,control,Autobiographical,0,0,0,0,1,1,1
+19,dc40_v1,control,Autobiographical,0,1,0,0,1,1,1
+24,dc42_v1,control,Autobiographical,0,1,0,1,1,1,1
+29,dc14_v1,control,Autobiographical,0,0,0,0,1,1,1
+1,dpc20,chronic,Autobiographical,1,1,0,0,1,1,1
+2,dpc19_tri,chronic,Triangle,1,1,0,1,1,1,1
+4,dpc26_tri,chronic,Triangle,1,1,0,1,0,1,1
+5,dpc15_tri,chronic,Triangle,1,1,0,1,1,0,0
+7,dpc11_tri,chronic,Triangle,1,1,0,1,1,0,1
+8,dpc16,chronic,Autobiographical,1,0,1,0,1,1,1
+12,dpc15,chronic,Autobiographical,1,1,1,1,1,1,1
+16,dpc10,chronic,Autobiographical,1,1,1,1,1,1,1
+26,dpc2,chronic,Autobiographical,1,0,0,0,0,1,1

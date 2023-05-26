@@ -1,0 +1,21 @@
+;ID;Diagnosis;Data type;True label;Prediction_lowlevel;Prediction_word_embeddings;Prediction_sentence_embeddings;Triangle_lowlevel_predictions;Triangle_word_predictions;Triangle_sentence_predictions
+4;dc27_v1;control;Autobiographical;0;0;1;1;0;1;0
+5;dc37_v1;control;Autobiographical;0;0;0;0;0;0;0
+7;dc28_v1;control;Autobiographical;0;1;1;1;0;0;0
+9;dc14_v1;control;Autobiographical;0;0;0;1;0;0;0
+13;dc5_v1;control;Autobiographical;0;0;1;0;0;0;0
+17;dc29_v1;control;Autobiographical;0;0;1;1;0;0;0
+18;dc21_v1;control;Autobiographical;0;0;0;0;0;0;0
+20;dc24_v1;control;Autobiographical;0;0;0;0;0;1;0
+21;dc22_v1;control;Autobiographical;0;0;1;0;0;0;0
+28;dc19_v1;control;Autobiographical;0;1;0;0;0;0;0
+0;dpc25;chronic;Autobiographical;1;0;0;1;0;1;0
+1;dp43_v1;1st_episode;Autobiographical;1;1;1;1;0;0;0
+2;dpc23;chronic;Autobiographical;1;0;0;1;0;1;1
+3;dpc27;chronic;Autobiographical;1;1;0;1;0;0;0
+6;dpc8;chronic;Autobiographical;1;0;0;0;0;0;0
+8;dp1_v1;1st_episode;Autobiographical;1;1;1;1;0;0;1
+10;dp29_v1;1st_episode;Autobiographical;1;1;1;1;0;0;0
+11;dpc6;chronic;Autobiographical;1;1;1;1;0;0;0
+12;dp6_v1;1st_episode;Autobiographical;1;1;1;1;0;0;0
+14;dp42_v1;1st_episode;Autobiographical;1;1;1;1;0;0;1

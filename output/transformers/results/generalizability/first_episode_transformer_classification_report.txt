@@ -1,0 +1,66 @@
+2023-04-19 11:08:14.902217
+
+Performance metrics on test data: 
+{'eval_loss': 3.3625290393829346, 'eval_accuracy': 0.6666666666666666, 'eval_runtime': 35.4898, 'eval_samples_per_second': 0.507, 'eval_steps_per_second': 0.028, 'epoch': 20.0} 
+
+Hyperparameters: 
+lr: 3.0129532688228985e-05
+n_epochs: None
+batch_size: 32
+weight_decay: 0.10701586788084616
+
+CLASSIFICATION REPORT: 
+              precision    recall  f1-score   support
+
+           0       0.62      0.89      0.73         9
+           1       0.80      0.44      0.57         9
+
+    accuracy                           0.67        18
+   macro avg       0.71      0.67      0.65        18
+weighted avg       0.71      0.67      0.65        18
+
+
+2023-04-27 16:12:37.340566
+
+Performance metrics on test data: 
+{'eval_loss': 0.7198276519775391, 'eval_accuracy': 0.5, 'eval_runtime': 47.6352, 'eval_samples_per_second': 0.378, 'eval_steps_per_second': 0.021, 'epoch': 20.0} 
+
+Hyperparameters: 
+lr: 3.0129532688228985e-05
+n_epochs: None
+batch_size: 32
+weight_decay: 0.10701586788084616
+
+CLASSIFICATION REPORT: 
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         9
+           1       0.50      1.00      0.67         9
+
+    accuracy                           0.50        18
+   macro avg       0.25      0.50      0.33        18
+weighted avg       0.25      0.50      0.33        18
+
+
+2023-05-05 00:15:15.162058
+
+Performance metrics on test data: 
+{'eval_loss': 6.273269176483154, 'eval_accuracy': 0.5, 'eval_runtime': 6.3679, 'eval_samples_per_second': 2.827, 'eval_steps_per_second': 0.314, 'epoch': 20.0} 
+
+Hyperparameters: 
+lr: 1.6735956588122548e-05
+n_epochs: None
+batch_size: 16
+weight_decay: 0.1063319772477453
+
+CLASSIFICATION REPORT: 
+              precision    recall  f1-score   support
+
+           0       0.50      0.44      0.47         9
+           1       0.50      0.56      0.53         9
+
+    accuracy                           0.50        18
+   macro avg       0.50      0.50      0.50        18
+weighted avg       0.50      0.50      0.50        18
+
+

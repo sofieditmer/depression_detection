@@ -1,0 +1,23 @@
+,ID,Diagnosis,Data type,True label,Prediction_lowlevel,Prediction_word_embeddings,Prediction_sentence_embeddings,Auto_lowlevel_predictions,Auto_word_predictions,Auto_sentence_predictions
+0,dc36_tri,control,Triangle,0,1,0,0,0,0,0
+7,dc5_tri,control,Triangle,0,1,1,1,1,0,0
+8,dc2_tri,control,Triangle,0,1,0,0,0,0,0
+11,dc41_tri,control,Triangle,0,1,1,0,0,0,0
+13,dc31_tri,control,Triangle,0,1,1,0,0,0,0
+16,dc35_tri,control,Triangle,0,1,1,1,0,0,0
+18,dc9_tri,control,Triangle,0,1,0,1,0,0,0
+25,dc20_tri,control,Triangle,0,1,1,0,1,0,0
+27,dc8_tri,control,Triangle,0,1,1,1,0,0,0
+28,dc40_tri,control,Triangle,0,1,1,0,0,0,0
+36,dc10_tri,control,Triangle,0,1,1,0,1,0,0
+1,dp1_tri,1st_episode,Triangle,1,1,1,0,1,0,0
+2,dp15_tri,1st_episode,Triangle,1,1,1,0,0,0,0
+3,dp38_tri,1st_episode,Triangle,1,1,0,1,0,0,0
+4,dp22_tri,1st_episode,Triangle,1,1,1,1,0,0,0
+5,dp28_tri,1st_episode,Triangle,1,1,1,1,1,0,0
+6,dp33_tri,1st_episode,Triangle,1,1,0,0,0,0,0
+10,dpc8_tri,chronic,Triangle,1,1,1,1,0,0,0
+12,dpc23_tri,chronic,Triangle,1,1,0,1,0,0,0
+15,dpc15_tri,chronic,Triangle,1,1,1,0,1,0,0
+17,dpc26_tri,chronic,Triangle,1,1,1,0,0,0,0
+21,dpc6_tri,chronic,Triangle,1,1,1,0,0,0,0
