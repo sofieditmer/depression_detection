@@ -16,8 +16,8 @@
 4,dp22_tri,1st_episode,Triangle,1,1,1,1,0,0,0
 5,dp28_tri,1st_episode,Triangle,1,1,1,1,1,0,0
 6,dp33_tri,1st_episode,Triangle,1,1,0,0,0,0,0
-9,dp31_tri,1st_episode,Triangle,1,1,1,1,1,1,1
 10,dpc8_tri,chronic,Triangle,1,1,1,1,0,0,0
 12,dpc23_tri,chronic,Triangle,1,1,0,1,0,0,0
-14,dp37_tri,1st_episode,Triangle,1,1,1,1,0,0,0
 15,dpc15_tri,chronic,Triangle,1,1,1,0,1,0,0
+17,dpc26_tri,chronic,Triangle,1,1,1,0,0,0,0
+21,dpc6_tri,chronic,Triangle,1,1,1,0,0,0,0

@@ -10,8 +10,10 @@ The ```src/``` folder contains the main scripts of this project which include th
 ```
 |-- data_exploration.ipynb                # Notebook containing the initial exploration of the data
 |-- feature_extraction.py                 # Script for extracting the low-level text markers as well as the word and sentence embeddings from the transcribed audio files
-|-- train_baseline_models.py              # Script for training the 12 baseline logistic regression models 
+|-- train_baseline_models.py              # Script for training the 12 baseline logistic regression models          
 |-- train_xgboost_models.py               # Script for training the 12 XGBoost models
+|-- train_transformer_models.py           # Script for training the 4 transformer models
+|-- run_seeds_xgboost.py                  # Script for training the 12 XGBoost models on five randomly chosen seeds. 
 |-- README.md                             # README file providing information of the src/ folder structure
 ```
 
@@ -56,11 +58,11 @@ The output of the XGBoost model training can be found in ```output/xgboost/``` f
 
 **4. Training Transformer Models**
 
-To train the transformer models... 
+To train the transformer models, which requires a lot of RAM and should preferably by done on an external GPU, the following code can be executed:
 
 ```
 src/
-python3 
+python3 train_transformer_models.py
 ```
 
 The outputs of the transformer models are saved in ```output/transformer/```.

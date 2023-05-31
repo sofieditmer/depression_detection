@@ -287,9 +287,6 @@ def split_equal_test_size_task_transformer(X, y, test_size):
     
     return X_train, X_test, y_train, y_test
 
-
-
-
 def split_equal_test_size(X, y, test_size):
     """
     Returns a test dataset that contains an equal number of each class 0 and 1.

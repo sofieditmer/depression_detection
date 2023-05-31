@@ -1,0 +1,536 @@
+---
+title: "Plots for master thesis"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+library(pacman)
+p_load(tidyverse)
+library(ggplot2)
+library(plotrix, pacman)
+pacman::p_load(tidyverse)
+```
+
+```{r}
+df = read.csv("mean_results_acc.csv")
+df
+order = c(1, 5, 3, 8, 12, 10, 2, 6, 4, 7, 11, 9)
+order
+df$order = order
+df
+df2 <- df[order(df$order),]
+df2
+```
+```{r}
+groups = c("auto_low_level", "auto_low_level", "auto_word","auto_word", "auto_sent", "auto_sent", "tri_low_level", "tri_low_level", "tri_word","tri_word","tri_sent","tri_sent")
+df2$group = groups
+
+features = rep(c("Hand-engineered", "Hand-engineered", "Word embeddings", "Word embeddings", "Sentence embeddings", "Sentence embeddings"), 2)
+df2$features = features
+ 
+lower = df2$Mean_accuracy - df2$Standard_error
+upper = df2$Mean_accuracy + df2$Standard_error
+training_task = c(rep(c("auto"), 6), rep(c("triangle"), 6))
+
+df2$training_task = training_task
+
+
+df2$Model <- factor(df2$Model, levels = df2$Model[order(df2$order)])
+
+xs = rep(c("IPII", "IPII", "FHA", "FHA"), 3)
+df2$xs = xs
+
+ggplot(df2, aes(x = Model, y = Mean_accuracy, color = Test_type)) + 
+  geom_point() + geom_errorbar(aes(ymin = lower, ymax = upper)) + 
+  geom_line(aes(group = group)) + 
+  facet_wrap(~factor(features, levels = c("Hand-engineered", "Word embeddings", "Sentence embeddings")), ncol = 3, scales = "free") + 
+  ylim(0.4, 0.8) + 
+  scale_x_discrete(labels= xs) +
+  xlab("Task type trained on") +
+  ylab("Mean accuracy") +
+  theme(strip.text = element_text(size = 12, family="serif"))+
+  geom_hline(yintercept = 0.5, color = "darkgreen", linetype = "dashed")+
+  scale_color_discrete(name = "Test type") +
+  ggtitle("XGBoost model results across 5 seeds") +
+  theme_bw()
+
+# add transformer results
+df_t <- data.frame(X = c(12, 13, 14, 15),
+                  Model  = c("Tri_transformer", "Auto_transformer", "Test_auto_tri_trasnformer", "Test_tri_auto_trasnformer"),
+                  Model_names  = c("Transformer (FHA)", "Transformer (IPII)", "Transformer (FHA on IPII)", "Transformer (IPII on FHA)"),
+                  Mean_accuracy = c(0.64, 0.75, 0.63, 0.53),
+                  Standard_error = c(0.03, 0.03, 0.03, 0.02),
+                  Test_type = c("internal", "internal", "external", "external"), 
+                  order = c(14, 12, 15, 13),
+                  group = c("tri_trans", "auto_trans", "tri_trans", "auto_trans"),
+                  features = c("Raw text", "Raw text", "Raw text", "Raw text"),
+                  training_task = c("triangle", "auto", "triangle", "auto"),
+                  xs = c("FHA", "IPII", "FHA", "IPII")
+                  )
+df2$Model_names = c("XGB HE (IPII)", "XGB HE (IPII on FHA)", "XGB WE (IPII)", "XGB WE (IPII on FHA)", "XGB SE (IPII)", "XGB SE (IPII on FHA)", "XGB HE (FHA)", "XGB HE (FHA on IPII)", "XGB WE (FHA)", "XGB WE (FHA on IPII)", "XGB SE (FHA)", "XGB SE (FHA on IPII)")
+
+df_full = rbind(df_t, df2)
+
+df_full$Model <- factor(df_full$Model, levels = df_full$Model[order(df_full$order)])
+
+lower = df_full$Mean_accuracy - df_full$Standard_error
+upper = df_full$Mean_accuracy + df_full$Standard_error
+
+gen = ggplot(df_full, aes(x = Model, y = Mean_accuracy, color = Test_type)) + 
+  geom_point() + geom_errorbar(aes(ymin = lower, ymax = upper)) + 
+  geom_line(aes(group = group)) + 
+  facet_wrap(~factor(features, levels = c("Hand-engineered", "Word embeddings", "Sentence embeddings", "Raw text")), ncol = 4, scales = "free") + 
+  ylim(0.4, 0.8) + 
+  xlab("Task type trained on") +
+  ylab("Mean accuracy") +
+  theme(strip.text = element_text(size = 12, family="serif"))+
+  geom_hline(yintercept = 0.5, color = "darkgreen", linetype = "dashed")+
+  scale_color_discrete(name = "Test type") +
+  ggtitle("Generalizability results for XGBoost and Transformer models") +
+  theme_bw() +
+  scale_x_discrete(labels=c("IPII", "", "FHA", "")) +
+  theme(axis.text.x=element_text(hjust=-0.25))
+
+gen
+ggsave(plot =gen, width = 8, height = 4, dpi = 300, filename = "generalizability.jpg")
+
+```
+# Key findings plot
+```{r}
+# Plot with the best internal test
+
+df_t <- data.frame(X = c(12, 13, 14, 15),
+                  Model  = c("Tri_transformer", "Auto_transformer", "Test_auto_tri_trasnformer", "Test_tri_auto_trasnformer"),
+                  Model_names  = c("Transformer (FHA)", "Transformer (IPII)", "Transformer (FHA on IPII)", "Transformer (IPII on FHA)"),
+                  Mean_accuracy = c(0.64, 0.75, 0.63, 0.53),
+                  Standard_error = c(0.03, 0.03, 0.03, 0.02),
+                  Test_type = c("internal", "internal", "external", "external"), 
+                  order = c(13, 14, 15, 16),
+                  group = c("tri_trans", "auto_trans", "tri_trans", "auto_trans"),
+                  features = c("Raw text", "Raw text", "Raw text", "Raw text"),
+                  training_task = c("triangle", "auto", "triangle", "auto"),
+                  xs = c("FHA", "IPII", "FHA", "IPII")
+                  )
+
+df2$Model_names = c("XGB HE (IPII)", "XGB HE (IPII on FHA)", "XGB WE (IPII)", "XGB WE (IPII on FHA)", "XGB SE (IPII)", "XGB SE (IPII on FHA)", "XGB HE (FHA)", "XGB HE (FHA on IPII)", "XGB WE (FHA)", "XGB WE (FHA on IPII)", "XGB SE (FHA)", "XGB SE (FHA on IPII)")
+
+df_full = rbind(df_t, df2)
+
+lower = df_full$Mean_accuracy - df_full$Standard_error
+upper = df_full$Mean_accuracy + df_full$Standard_error
+df_full$Model_names = reorder(df_full$Model_names, df_full$Mean_accuracy)
+
+key_findings = ggplot(df_full, aes(x = Mean_accuracy, y=Model_names, color = features)) + 
+  geom_point(aes(shape=training_task),  size = 3) +
+  geom_errorbar(aes(xmin = lower, xmax = upper)) +
+  geom_vline(xintercept = 0.5, color = "darkgreen", linetype = "dashed") +
+  facet_grid(rows = vars(factor(Test_type, levels = c("internal", "external"))), scales = "free") +
+  scale_shape_discrete(labels = c("IPII", "FHA")) +
+  guides(shape=guide_legend(title="Task data trained on"), color = guide_legend(title="Input feature type")) +
+  xlab("Mean accuracy") +
+  ylab("Model name")
+
+key_findings
+```
+
+# plot the best
+```{r}
+
+df_60 = df_full[df_full$Mean_accuracy >= 0.55, ]
+
+lower = df_60$Mean_accuracy - df_60$Standard_error
+upper = df_60$Mean_accuracy + df_60$Standard_error
+
+key_findings = ggplot(df_60, aes(x = Mean_accuracy, y=Model_names, color = features)) + 
+  geom_point(aes(shape=training_task),  size = 3) +
+  geom_errorbar(aes(xmin = lower, xmax = upper)) +
+  geom_vline(xintercept = 0.5, color = "darkgreen", linetype = "dashed") +
+  facet_grid(rows = vars(factor(Test_type, levels = c("internal", "external"))), scales = "free") +
+  scale_shape_discrete(labels = c("IPII", "FHA")) +
+  guides(shape=guide_legend(title="Task data trained on"), color = guide_legend(title="Input feature type")) +
+  xlab("Mean accuracy") +
+  ylab("Model name") +
+  theme_bw()
+
+key_findings
+
+ggsave(plot =key_findings, width = 8, height = 6, dpi = 300, filename = "key_findings.jpg")
+```
+
+
+```{r}
+df_l <- data.frame(X = c(16, 17, 18, 19),
+                  Model  = c("Logistic_pos_first_ep", "Logistic_neg_first_ep", "Logistic_pos_chronic", "Logistic_neg_chronic"),
+                  Model_names  = c("Logistic for first-episode (Positive)", "Logistic for first-episode (Negative)", "Logistic for chronic (Positive)", "Logistic for chronic (Negative)"),
+                  Mean_accuracy = c(0.75, 0.75, 0.67, 0.67),
+                  Standard_error = c(0, 0, 0, 0),
+                  Test_type = c("internal", "internal", "internal", "internal"), 
+                  order = c(13, 14, 15, 16),
+                  group = c("logstic", "logstic", "logstic", "logstic"),
+                  features = c("Positive word use", "Negative word use", "Positive word use", "Negative word use"),
+                  training_task = c("auto", "auto", "auto", "auto"),
+                  xs = c("IPII", "IPII", "IPII", "IPII")
+                  )
+
+df_full2 = rbind(df_l, df_full)
+
+lower = df_full2$Mean_accuracy - df_full2$Standard_error
+upper = df_full2$Mean_accuracy + df_full2$Standard_error
+df_full2$Model_names = reorder(df_full2$Model_names, df_full2$Mean_accuracy)
+
+key_findings = ggplot(df_full2, aes(x = Mean_accuracy, y=Model_names, color = features)) + 
+  geom_point(aes(shape=training_task),  size = 3) +
+  geom_errorbar(aes(xmin = lower, xmax = upper)) +
+  geom_vline(xintercept = 0.5, color = "darkgreen", linetype = "dashed") +
+  facet_grid(rows = vars(factor(Test_type, levels = c("internal", "external"))), scales = "free") +
+  scale_shape_discrete(labels = c("IPII", "FHA")) +
+  guides(shape=guide_legend(title="Task data trained on"), color = guide_legend(title="Input feature type")) +
+  xlab("Mean accuracy") +
+  ylab("Model name")
+
+key_findings
+
+ggsave(plot =key_findings, width = 8, height = 6, dpi = 300, filename = "key_findings2.jpg")
+
+```
+# mean for logstic
+```{r}
+df_l <- data.frame(X = c(16, 17, 18, 19),
+                  Model  = c("Logistic_pos", "Logistic_neg"),
+                  Model_names  = c("Logistic (Positive)", "Logistic (Negative)"),
+                  Mean_accuracy = c(mean(c(0.75, 0.67)), mean(c(0.75, 0.67))),
+                  Standard_error = c(std.error(c(0.75, 0.67)),std.error(c(0.75, 0.67))),
+                  Test_type = c("internal", "internal"), 
+                  order = c(13, 14),
+                  group = c("logstic", "logstic"),
+                  features = c("Positive word use", "Negative word use"),
+                  training_task = c("auto", "auto"),
+                  xs = c("IPII", "IPII")
+                  )
+
+df_full2 = rbind(df_l, df_full)
+
+lower = df_full2$Mean_accuracy - df_full2$Standard_error
+upper = df_full2$Mean_accuracy + df_full2$Standard_error
+df_full2$Model_names = reorder(df_full2$Model_names, df_full2$Mean_accuracy)
+
+key_findings = ggplot(df_full2, aes(x = Mean_accuracy, y=Model_names, color = features)) + 
+  geom_point(aes(shape=training_task),  size = 3) +
+  geom_errorbar(aes(xmin = lower, xmax = upper)) +
+  geom_vline(xintercept = 0.5, color = "darkgreen", linetype = "dashed") +
+  facet_grid(rows = vars(factor(Test_type, levels = c("internal", "external"))), scales = "free") +
+  scale_shape_discrete(labels = c("IPII", "FHA")) +
+  guides(shape=guide_legend(title="Task data trained on"), color = guide_legend(title="Input feature type")) +
+  xlab("Mean accuracy") +
+  ylab("Model name")
+
+key_findings
+
+ggsave(plot =key_findings, width = 8, height = 6, dpi = 300, filename = "key_findings3.jpg")
+```
+
+# just with pos and neg pooled togetehr
+```{r}
+df_l <- data.frame(X = c(16, 17, 18, 19),
+                  Model  = c("Logistic_pos_neg"),
+                  Model_names  = c("Logistic (Positive or Negative)"),
+                  Mean_accuracy = c(mean(c(0.75, 0.67))),
+                  Standard_error = c(std.error(c(0.75, 0.67))),
+                  Test_type = c("internal"), 
+                  order = c(13, 14),
+                  group = c("logstic"),
+                  features = c("Positive/negative word use"),
+                  training_task = c("auto"),
+                  xs = c("IPII")
+                  )
+
+df_full2 = rbind(df_l, df_full)
+
+lower = df_full2$Mean_accuracy - df_full2$Standard_error
+upper = df_full2$Mean_accuracy + df_full2$Standard_error
+df_full2$Model_names = reorder(df_full2$Model_names, df_full2$Mean_accuracy)
+
+key_findings = ggplot(df_full2, aes(x = Mean_accuracy, y=Model_names, color = features)) + 
+  geom_point(aes(shape=training_task),  size = 3) +
+  geom_errorbar(aes(xmin = lower, xmax = upper)) +
+  geom_vline(xintercept = 0.5, color = "darkgreen", linetype = "dashed") +
+  facet_grid(rows = vars(factor(Test_type, levels = c("internal", "external"))), scales = "free") +
+  scale_shape_discrete(labels = c("IPII", "FHA")) +
+  guides(shape=guide_legend(title="Task data trained on"), color = guide_legend(title="Input feature type")) +
+  xlab("Mean accuracy") +
+  ylab("Model name") +
+    theme_bw()
+key_findings
+
+```
+
+
+# Only keeping those with accuracy above or equal to 60%
+```{r}
+
+df_60 = df_full2[df_full2$Mean_accuracy >= 0.57, ]
+
+lower = df_60$Mean_accuracy - df_60$Standard_error
+upper = df_60$Mean_accuracy + df_60$Standard_error
+df_60$Model_names = reorder(df_60$Model_names, df_60$Mean_accuracy)
+
+key_findings = ggplot(df_60, aes(x = Mean_accuracy, y=Model_names, color = features)) + 
+  geom_point(aes(shape=training_task),  size = 3) +
+  geom_errorbar(aes(xmin = lower, xmax = upper)) +
+  facet_grid(rows = vars(factor(Test_type, levels = c("internal", "external"))), scales = "free") +
+  scale_shape_discrete(labels = c("IPII", "FHA")) +
+  guides(shape=guide_legend(title="Task data trained on"), color = guide_legend(title="Input feature type")) +
+  xlab("Mean accuracy") +
+  ylab("Model name")+
+  theme_bw()+
+  scale_x_continuous(breaks = scales::pretty_breaks(n = 5)) +
+  ggtitle("Overall results for the best performing models")
+
+key_findings
+
+ggsave(plot =key_findings, width = 8, height = 6, dpi = 300, filename = "key_findings_top_10.jpg")
+```
+
+
+
+
+
+# F1 plots
+```{r}
+df = read.csv("mean_results_f1.csv")
+df
+order = c(1, 5, 3, 8, 12, 10, 2, 6, 4, 7, 11, 9)
+order
+df$order = order
+df
+df2 <- df[order(df$order),]
+
+```
+```{r}
+
+groups = c("auto_low_level", "auto_low_level", "auto_word","auto_word", "auto_sent", "auto_sent", "tri_low_level", "tri_low_level", "tri_word","tri_word","tri_sent","tri_sent")
+df2$group = groups
+
+features = rep(c("Hand-engineered", "Hand-engineered", "Word embeddings", "Word embeddings", "Sentence embeddings", "Sentence embeddings"), 2)
+df2$features = features
+ 
+lower = df2$Mean_f1 - df2$Standard_error
+upper = df2$Mean_f1 + df2$Standard_error
+training_task = c(rep(c("auto"), 6), rep(c("triangle"), 6))
+
+df2$training_task = training_task
+
+
+df2$Model <- factor(df2$Model, levels = df2$Model[order(df2$order)])
+
+xs = rep(c("IPII", "IPII", "FHA", "FHA"), 3)
+df2$xs = xs
+
+ggplot(df2, aes(x = Model, y = Mean_f1, color = Test_type)) + 
+  geom_point() + geom_errorbar(aes(ymin = lower, ymax = upper)) + 
+  geom_line(aes(group = group)) + 
+  facet_wrap(~factor(features, levels = c("Hand-engineered", "Word embeddings", "Sentence embeddings")), ncol = 3, scales = "free") + 
+  ylim(0.4, 0.8) + 
+  scale_x_discrete(labels= xs) +
+  xlab("Task type trained on") +
+  ylab("Mean F1-score") +
+  theme(strip.text = element_text(size = 12, family="serif"))+
+  geom_hline(yintercept = 0.5, color = "darkgreen", linetype = "dashed")+
+  scale_color_discrete(name = "Test type") +
+  ggtitle("XGBoost model results across 5 seeds") +
+  theme_bw()
+
+# add transformer results
+df_t <- data.frame(X = c(12, 13, 14, 15),
+                  Model  = c("Tri_transformer", "Auto_transformer", "Test_auto_tri_trasnformer", "Test_tri_auto_trasnformer"),
+                  Model_names  = c("Transformer (FHA)", "Transformer (IPII)", "Transformer (FHA on IPII)", "Transformer (IPII on FHA)"),
+                  Mean_f1 = c(0.66, 0.79, 0.54, 0.58),
+                  Standard_error = c(0.02, 0.05, 0.02, 0.1),
+                  Test_type = c("internal", "internal", "external", "external"), 
+                  order = c(14, 12, 15, 13),
+                  group = c("tri_trans", "auto_trans", "tri_trans", "auto_trans"),
+                  features = c("Raw text", "Raw text", "Raw text", "Raw text"),
+                  training_task = c("triangle", "auto", "triangle", "auto"),
+                  xs = c("FHA", "IPII", "FHA", "IPII")
+                  )
+df2$Model_names = c("XGB HE (IPII)", "XGB HE (IPII on FHA)", "XGB WE (IPII)", "XGB WE (IPII on FHA)", "XGB SE (IPII)", "XGB SE (IPII on FHA)", "XGB HE (FHA)", "XGB HE (FHA on IPII)", "XGB WE (FHA)", "XGB WE (FHA on IPII)", "XGB SE (FHA)", "XGB SE (FHA on IPII)")
+
+df_full = rbind(df_t, df2)
+
+df_full$Model <- factor(df_full$Model, levels = df_full$Model[order(df_full$order)])
+
+lower = df_full$Mean_f1 - df_full$Standard_error
+upper = df_full$Mean_f1 + df_full$Standard_error
+
+gen = ggplot(df_full, aes(x = Model, y = Mean_f1, color = Test_type)) + 
+  geom_point() + geom_errorbar(aes(ymin = lower, ymax = upper)) + 
+  geom_line(aes(group = group)) + 
+  facet_wrap(~factor(features, levels = c("Hand-engineered", "Word embeddings", "Sentence embeddings", "Raw text")), ncol = 4, scales = "free") + 
+  ylim(0.2, 1) + 
+  xlab("Task type trained on") +
+  ylab("Mean F1-score") +
+  theme(strip.text = element_text(size = 12, family="serif"))+
+  geom_hline(yintercept = 0.67, color = "darkgreen", linetype = "dashed")+
+  scale_color_discrete(name = "Test type") +
+  ggtitle("Generalizability results for XGBoost and Transformer models") +
+  theme_bw() +
+  scale_x_discrete(labels=c("IPII", "", "FHA", "")) +
+  theme(axis.text.x=element_text(hjust=-0.25))
+
+gen
+
+ggsave(plot =gen, width = 8, height = 4, dpi = 300, filename = "gen_f1.jpg")
+```
+
+# F1 controls
+
+```{r}
+df = read.csv("mean_results_f1_con.csv")
+df
+order = c(1, 5, 3, 8, 12, 10, 2, 6, 4, 7, 11, 9)
+order
+df$order = order
+df
+df2 <- df[order(df$order),]
+
+```
+
+```{r}
+
+groups = c("auto_low_level", "auto_low_level", "auto_word","auto_word", "auto_sent", "auto_sent", "tri_low_level", "tri_low_level", "tri_word","tri_word","tri_sent","tri_sent")
+df2$group = groups
+
+features = rep(c("Hand-engineered", "Hand-engineered", "Word embeddings", "Word embeddings", "Sentence embeddings", "Sentence embeddings"), 2)
+df2$features = features
+ 
+lower = df2$Mean_f1 - df2$Standard_error
+upper = df2$Mean_f1 + df2$Standard_error
+training_task = c(rep(c("auto"), 6), rep(c("triangle"), 6))
+
+df2$training_task = training_task
+
+
+df2$Model <- factor(df2$Model, levels = df2$Model[order(df2$order)])
+
+xs = rep(c("IPII", "IPII", "FHA", "FHA"), 3)
+df2$xs = xs
+
+ggplot(df2, aes(x = Model, y = Mean_f1, color = Test_type)) + 
+  geom_point() + geom_errorbar(aes(ymin = lower, ymax = upper)) + 
+  geom_line(aes(group = group)) + 
+  facet_wrap(~factor(features, levels = c("Hand-engineered", "Word embeddings", "Sentence embeddings")), ncol = 3, scales = "free") + 
+  ylim(0.4, 0.8) + 
+  scale_x_discrete(labels= xs) +
+  xlab("Task type trained on") +
+  ylab("Mean F1-score") +
+  theme(strip.text = element_text(size = 12, family="serif"))+
+  geom_hline(yintercept = 0.5, color = "darkgreen", linetype = "dashed")+
+  scale_color_discrete(name = "Test type") +
+  ggtitle("XGBoost model results across 5 seeds") +
+  theme_bw()
+
+# add transformer results
+df_t <- data.frame(X = c(12, 13, 14, 15),
+                  Model  = c("Tri_transformer", "Auto_transformer", "Test_auto_tri_trasnformer", "Test_tri_auto_trasnformer"),
+                  Model_names  = c("Transformer (FHA)", "Transformer (IPII)", "Transformer (FHA on IPII)", "Transformer (IPII on FHA)"),
+                  Mean_f1 = c(0.66, 0.79, 0.54, 0.58),
+                  Standard_error = c(0.02, 0.05, 0.02, 0.1),
+                  Test_type = c("internal", "internal", "external", "external"), 
+                  order = c(14, 12, 15, 13),
+                  group = c("tri_trans", "auto_trans", "tri_trans", "auto_trans"),
+                  features = c("Raw text", "Raw text", "Raw text", "Raw text"),
+                  training_task = c("triangle", "auto", "triangle", "auto"),
+                  xs = c("FHA", "IPII", "FHA", "IPII")
+                  )
+df2$Model_names = c("XGB HE (IPII)", "XGB HE (IPII on FHA)", "XGB WE (IPII)", "XGB WE (IPII on FHA)", "XGB SE (IPII)", "XGB SE (IPII on FHA)", "XGB HE (FHA)", "XGB HE (FHA on IPII)", "XGB WE (FHA)", "XGB WE (FHA on IPII)", "XGB SE (FHA)", "XGB SE (FHA on IPII)")
+
+df_full = rbind(df_t, df2)
+
+df_full$Model <- factor(df_full$Model, levels = df_full$Model[order(df_full$order)])
+
+lower = df_full$Mean_f1 - df_full$Standard_error
+upper = df_full$Mean_f1 + df_full$Standard_error
+
+gen = ggplot(df_full, aes(x = Model, y = Mean_f1, color = Test_type)) + 
+  geom_point() + geom_errorbar(aes(ymin = lower, ymax = upper)) + 
+  geom_line(aes(group = group)) + 
+  facet_wrap(~factor(features, levels = c("Hand-engineered", "Word embeddings", "Sentence embeddings", "Raw text")), ncol = 4, scales = "free") + 
+  ylim(0, 1) + 
+  xlab("Task type trained on") +
+  ylab("Mean F1-score") +
+  theme(strip.text = element_text(size = 12, family="serif"))+
+  geom_hline(yintercept = 0.67, color = "darkgreen", linetype = "dashed")+
+  scale_color_discrete(name = "Test type") +
+  ggtitle("Generalizability results for XGBoost and Transformer models") +
+  theme_bw() +
+  scale_x_discrete(labels=c("IPII", "", "FHA", "")) +
+  theme(axis.text.x=element_text(hjust=-0.25))
+
+gen
+
+ggsave(plot =gen, width = 8, height = 4, dpi = 300, filename = "gen_f1_con.jpg")
+```
+
+
+# Key findings
+```{r}
+
+df2$Model_names = c("XGB HE (IPII)", "XGB HE (IPII on FHA)", "XGB WE (IPII)", "XGB WE (IPII on FHA)", "XGB SE (IPII)", "XGB SE (IPII on FHA)", "XGB HE (FHA)", "XGB HE (FHA on IPII)", "XGB WE (FHA)", "XGB WE (FHA on IPII)", "XGB SE (FHA)", "XGB SE (FHA on IPII)")
+
+df_full = rbind(df_t, df2)
+
+lower = df_full$Mean_f1 - df_full$Standard_error
+upper = df_full$Mean_f1 + df_full$Standard_error
+
+df_full$Model_names = reorder(df_full$Model_names, df_full$Mean_f1)
+
+key_findings = ggplot(df_full, aes(x = Mean_f1, y=Model_names, color = features)) + 
+  geom_point(aes(shape=training_task),  size = 3) +
+  geom_errorbar(aes(xmin = lower, xmax = upper)) +
+  geom_vline(xintercept = 0.5, color = "darkgreen", linetype = "dashed") +
+  facet_grid(rows = vars(factor(Test_type, levels = c("internal", "external"))), scales = "free") +
+  scale_shape_discrete(labels = c("IPII", "FHA")) +
+  guides(shape=guide_legend(title="Task data trained on"), color = guide_legend(title="Input feature type")) +
+  xlab("Mean F1-score") +
+  ylab("Model name")
+
+key_findings
+```
+Above 0.5
+```{r}
+df_50 = df_full[df_full$Mean_f1 >= 0.50, ]
+
+lower = df_50$Mean_f1 - df_50$Standard_error
+upper = df_50$Mean_f1 + df_50$Standard_error
+
+df_50$Model_names = reorder(df_50$Model_names, df_50$Mean_f1)
+
+key_findings = ggplot(df_50, aes(x = Mean_f1, y=Model_names, color = features)) + 
+  geom_point(aes(shape=training_task),  size = 3) +
+  geom_errorbar(aes(xmin = lower, xmax = upper)) +
+  geom_vline(xintercept = 0.5, color = "darkgreen", linetype = "dashed") +
+  facet_grid(rows = vars(factor(Test_type, levels = c("internal", "external"))), scales = "free") +
+  scale_shape_discrete(labels = c("IPII", "FHA")) +
+  guides(shape=guide_legend(title="Task data trained on"), color = guide_legend(title="Input feature type")) +
+  xlab("Mean F1-score") +
+  ylab("Model name") + 
+  theme_bw()
+
+key_findings
+
+
+ggsave(plot =key_findings, width = 8, height = 6, dpi = 300, filename = "key_findings_f1.jpg")
+
+```
+
+

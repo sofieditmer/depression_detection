@@ -1,5 +1,5 @@
 """
-SCRIPT TO PERFORM GRID SEARCH
+Grid search script
 """
 
 # --- DEPENDENCIES --- #

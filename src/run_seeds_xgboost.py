@@ -2,8 +2,6 @@
 
 """
 Script for running five random seed and performing hyperparameter optimization and training all 12 XGBoost models.
-
-
 """
 
 # ---- DEPENDENCIES ---- #
@@ -18,7 +16,10 @@ from src.train_xgboost_models import main as run_seed
 
 def main(out_path="../output/xgboost/results/", test_size=0.20, val_size=0.13):
 
+    # create seed list
     seed_list = [60, 66, 31, 18, 97]
+
+    # train models for each seed
     for seed in seed_list:
         run_seed(out_path=out_path, test_size=test_size, val_size=val_size, rand_seed=seed)
 

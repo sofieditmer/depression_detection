@@ -11,6 +11,7 @@ Model overview:
 """
 
 # ---- DEPENDENCIES ---- #
+
 import os
 import sys
 sys.path.append(os.path.join(".."))
@@ -30,15 +31,15 @@ def main(out_path, test_size, val_size, n_sweeps, n_epochs):
     triangle_data, autobiographical_data, chronic_data, first_episode_data = prepare_data_xgboost_transformer(seed=1, text_features_path="../data/features/text_features.csv")
 
     # prepare data loader objects for all splits
-    '''
     train_dataloader_tri, eval_dataloader_tri, test_dataloader_tri = prepare_data(data=triangle_data,
                                                                                   test_size=test_size, 
-                                                                                  val_size=val_size)
+                                                                                  val_size=val_size, 
+                                                                                  task_angle = True)
     
     train_dataloader_auto, eval_dataloader_auto, test_dataloader_auto = prepare_data(data=autobiographical_data,
                                                                                   test_size=test_size, 
-                                                                                  val_size=val_size)
-    '''                                                                              
+                                                                                  val_size=val_size, 
+                                                                                  task_angle = True)
 
     train_dataloader_chronic, eval_dataloader_chronic, test_dataloader_chronic = prepare_data(data=chronic_data,
                                                                                   test_size=test_size, 
@@ -50,16 +51,12 @@ def main(out_path, test_size, val_size, n_sweeps, n_epochs):
                                                                                   val_size=val_size,
                                                                                   patient_angle=True) 
 
-    print(test_dataloader_chronic.dataset["ID"])
-    print(eval_dataloader_chronic.dataset["ID"])
-    print(test_dataloader_first_episode.dataset["ID"])
-
     # make output if it does not exist
     if not os.path.exists(out_path):
         os.makedirs(out_path)
         
     # ---- TRAIN TRANSFORMER MODELS ---- #
-    '''
+
     print("[INFO] Training and evaluating triangle data transformer model...")
 
     train_and_evaluate_transformer(train_dataloader=train_dataloader_tri,
@@ -89,7 +86,7 @@ def main(out_path, test_size, val_size, n_sweeps, n_epochs):
                                    sweep_project_name="autobiographical_transformer",
                                    n_sweeps=n_sweeps,
                                    n_epochs=n_epochs)
-    '''
+    
     print("[INFO] Training and evaluating chronic data transformer models...")
     
     train_and_evaluate_transformer(train_dataloader=train_dataloader_chronic,
@@ -104,7 +101,7 @@ def main(out_path, test_size, val_size, n_sweeps, n_epochs):
                                    sweep_project_name="chronic_transformer",
                                    n_sweeps=n_sweeps,
                                    n_epochs=n_epochs)
-    '''
+
     print("[INFO] Training and evaluating 1st episode data transformer models...")
     
     train_and_evaluate_transformer(train_dataloader=train_dataloader_first_episode,
@@ -119,7 +116,7 @@ def main(out_path, test_size, val_size, n_sweeps, n_epochs):
                                    sweep_project_name="1st_episode_transformer",
                                    n_sweeps=n_sweeps,
                                    n_epochs=n_epochs)
-    '''
+
     print(f"[INFO] Done! Model performance metrics have been saved in {out_path}...")
 
 if __name__=="__main__":

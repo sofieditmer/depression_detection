@@ -10,6 +10,7 @@ The ```utils/``` folder contains utility scripts used in the main scripts locate
 |-- preprocessing_utils.py              # Script containing the necessary utility functions for the preprocessing procedures
 |-- sentidav2_lemmas.csv                # .csv file containing the lemmas of the Danish sentiment lexicon, SENTIDA, which are used to extract negative words from the transcripts
 | train_logistic.py                     # Script for training logistic regression models
+| train_transformer.py                  # Script for training transformer models
 | train_XGB.py                          # Script for training XGBoost models
 |-- README.md                           # README file providing information of the src/ folder structure
 ```

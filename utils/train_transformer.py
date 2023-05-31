@@ -24,7 +24,7 @@ import pandas as pd
 
 def train_and_evaluate_transformer(train_dataloader, eval_dataloader, test_dataloader, gen_test_dataloader, out_path, out_filename_cr, out_filename_cf, sweep_project_name, n_sweeps, n_epochs, test_size, val_size):
     """
-    ADD DESCRIPTION
+    This function trains and evaluates the transformer models.
     """
 
     # --- SETUP WEIGHTS AND BIASES --- #
@@ -281,10 +281,8 @@ def evaluate_transformer_test_set(sweep_project_name, transformer_model, train_d
     save_performance_metrics(gen_test_metrics, gen_cr, gen_cf, out_filename_cf, out_filename_cr, best_parameters, out_path_gen)
     
 def prepare_data(data, test_size, val_size, task_angle=None, patient_angle=None):
-    """_summary_
-
-    Returns:
-        _type_: _description_
+    """
+    This function prepares the data for training.
     """
     # split data into train, val and test and convert to datasetDict object
     data_dict = prepare_transformer_data(data, 
@@ -317,7 +315,7 @@ def prepare_data(data, test_size, val_size, task_angle=None, patient_angle=None)
     
 def save_performance_metrics(test_metrics, cr, cf, out_filename_cf, out_filename_cr, best_parameters, out_path):
     """
-    ADD DESCRIPTION
+    This function saves the performance metrics.
     """
     # create output directory if it does not exist already
     if not os.path.exists(out_path):

@@ -46,7 +46,7 @@ def main(sentiment_threshold=3, output_path="../data/features", output_filename=
 
     # --- EXTRACT LOW-LEVEL FEATURES FROM TRANSCRIPTS --- #
 
-    print("[INFO] Extracting low-level text features...")
+    print("[INFO] Extracting hand-engineered text features...")
     
     df_features = extract_text_features(df, sentiment_threshold=sentiment_threshold)
 

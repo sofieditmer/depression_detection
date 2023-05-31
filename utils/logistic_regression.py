@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """
-Logistic regression script
+Logistic regression class
 """
 
 ## ---- DEPENDENCIES ---- ##
